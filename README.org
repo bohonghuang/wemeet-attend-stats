@@ -1,0 +1,15 @@
+* 腾讯会议出勤统计
+  使用前先使用 =pip= 进行依赖安装：
+  #+BEGIN_SRC shell
+    pip install pip install openpyxl xlrd pandas
+  #+END_SRC
+  在仓库目录下使用说明：
+  #+BEGIN_SRC shell
+    python statistic.py [选项]
+  #+END_SRC
+  选项说明如下：
+  - =-i= ：腾讯会议导出的xls/xlsx文件（默认为 =report.xlsx= ）
+  - =-m= ：成员名单（默认为 =members.txt= ，以换行进行分割）
+  - =-r= ：出勤所需的参会时间占主讲人参会时间的比例（默认为0，即有进入会议的都算出勤）
+  - =-d= ：出勤所需的最少时长（可选），格式为 =时:分:秒= \\
+    当出勤所需的最少时长被指定时，将不会按时间比例指定是否出勤。

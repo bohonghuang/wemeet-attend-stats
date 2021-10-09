@@ -9,7 +9,7 @@ import getopt
 def time_from_str(str):
     result = re.match('(\\d+):(\\d+):(\\d+)', str)
     if result:
-        hour, minute, second = tuple(map(lambda x: int(x), list(result.group(1, 2, 3))))
+        hour, minute, second = tuple(map(lambda x: int(x), result.group(1, 2, 3)))
         return time(hour=hour, minute=minute, second=second)
     else:
         return time()
@@ -24,13 +24,13 @@ def main(argv):
         print('使用 "-h" 查看帮助。')
         sys.exit()                                                                
 
-    time_ratio = 0.75
+    time_ratio = 0
     minimum_duration = None
-    input_file = 'report.xls'
+    input_file = 'report.xlsx'
     member_file = 'members.txt'
     for option, value in options:
         if option in ('-h', '--help'):
-            print('-i：腾讯会议导出的xls文件（默认为 report.xls）\n-m：成员名单（默认为 members.txt）\n-r：出勤所需的参会时间占主讲人参会时间的比例（默认为0.75）\n-d：出勤所需的最少时长（可选）\n当出勤所需的最少时长被指定时，将不会按时间比例指定是否出勤。')
+            print('-i：腾讯会议导出的 xls/xlsx 文件（默认为 report.xlsx）\n-m：成员名单（默认为 members.txt）\n-r：出勤所需的参会时间占主讲人参会时间的比例（默认为 0.0 ，即有进入会议的都算出勤）\n-d：出勤所需的最少时长（可选）\n当出勤所需的最少时长被指定时，将不会按时间比例指定是否出勤。')
             return
         elif option in ('-i', '--input'):
             input_file = value
