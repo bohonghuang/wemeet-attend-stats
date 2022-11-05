@@ -1,9 +1,9 @@
 * 腾讯会议出勤统计
   使用前先使用 =pip= 进行依赖安装：
   #+BEGIN_SRC shell
-    pip install pip install openpyxl xlrd pandas
+    pip install openpyxl xlrd pandas
   #+END_SRC
-  在仓库目录下使用说明：
+  使用说明：
   #+BEGIN_SRC shell
     python statistic.py [选项]
   #+END_SRC
